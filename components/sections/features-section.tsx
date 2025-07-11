@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { DollarSign, ArrowRight, Eye, GitBranch, Users, Shield, Clock } from "lucide-react"
 import { features } from "@/constants/features"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 import NextLink from "next/link"
 
 export function FeaturesSection({ page = false }: { page?: boolean }) {

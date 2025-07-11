@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Check, Clock, Copy, Share2 } from "lucide-react"
+import { ArrowRight, Share2 } from "lucide-react"
 import { floatingElements, steps } from "@/constants/steps"
+import Link from "next/link"
 
 export function HeroSection() {
   const [terminalText, setTerminalText] = useState("")
@@ -120,13 +121,15 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-white text-black hover:bg-white/90 h-12 px-8 group rounded-none"
-              >
-                Start sharing
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="/login">
+                <Button
+                  size="lg"
+                  className="bg-white text-black hover:bg-white/90 h-12 px-8 group rounded-none"
+                >
+                  Start sharing
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
 
             <div className="flex items-center space-x-8 text-sm text-muted-foreground">

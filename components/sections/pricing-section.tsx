@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { plans } from "@/constants/pricing"
 import { Check, ArrowRight, Star } from "lucide-react"
+import Link from "next/link"
 
 export function PricingSection() {
   return (
@@ -74,16 +75,18 @@ export function PricingSection() {
                 </ul>
 
                 {/* CTA Button */}
-                <Button
-                  className={`w-full group transition-all duration-300 rounded-none ${
-                    plan.popular
-                      ? "bg-white text-black hover:bg-white/90 hover:scale-[1.02]"
-                      : "bg-white/10 text-white border border-white/20 hover:bg-white hover:text-black hover:scale-[1.02]"
-                  }`}
-                >
-                  {plan.cta}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                </Button>
+                <Link href="/login">
+                  <Button
+                    className={`w-full group transition-all duration-300 rounded-none ${
+                      plan.popular
+                        ? "bg-white text-black hover:bg-white/90 hover:scale-[1.02]"
+                        : "bg-white/10 text-white border border-white/20 hover:bg-white hover:text-black hover:scale-[1.02]"
+                    }`}
+                  >
+                    {plan.cta}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
