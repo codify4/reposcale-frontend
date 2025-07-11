@@ -86,7 +86,7 @@ export function HeroSection() {
   }, [terminalText]);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10">
+    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10 lg:px-28">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
       {/* Floating code elements */}
@@ -105,7 +105,7 @@ export function HeroSection() {
         </div>
       ))}
       
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 lg:mx-20">
         <div className="flex gap-16">
           {/* Left content */}
           <div className="space-y-8 text-start flex flex-col">
@@ -147,7 +147,7 @@ export function HeroSection() {
       </div>
       
       {/* Right content - Terminal animation */}
-      <div className="relative w-11/12 lg:w-1/2 mt-10 lg:mt-0 lg:mr-10">
+      <div className="relative w-11/12 lg:w-1/2 mt-10 lg:mt-0 lg:mr-32">
         {/* Terminal window */}
         <div className="bg-black border border-white/20 relative scrollbar-hide">
           {/* Terminal header */}
