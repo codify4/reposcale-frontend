@@ -4,12 +4,10 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Menu, Github, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
 import Link from "next/link"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -35,7 +33,7 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-black/80 backdrop-blur-xl border-b border-border/10" : "bg-transparent"
+        isScrolled ? "bg-black/80 backdrop-blur-xl border-b border-border/10" : "bg-black"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8">
@@ -62,21 +60,12 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-foreground text-background hover:bg-foreground/90 h-9 px-6">
+            <Button className="bg-white text-black hover:bg-white/90 h-9 px-6">
               Get Started
             </Button>
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="w-9 h-9"
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="w-9 h-9">
@@ -86,9 +75,9 @@ export function Navigation() {
               <DropdownMenuContent align="end" className="w-[200px]">
                 {navItems.map((item) => (
                   <DropdownMenuItem key={item.name} asChild>
-                    <a href={item.href} className="font-medium">
+                    <Link href={item.href} className="font-medium">
                       {item.name}
-                    </a>
+                    </Link>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />

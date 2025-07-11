@@ -1,53 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { plans } from "@/constants/pricing"
 import { Check, ArrowRight, Star } from "lucide-react"
-
-const plans = [
-  {
-    name: "Free",
-    price: "0",
-    period: "forever",
-    description: "Perfect for trying out the service",
-    features: ["1 repository share", "Basic link generation", "7-day expiration limit", "Email support"],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Pro",
-    price: "9",
-    period: "one-time",
-    description: "Unlimited sharing for serious developers",
-    features: [
-      "Unlimited repository shares",
-      "Advanced analytics dashboard",
-      "Custom expiration dates",
-      "Access control permissions",
-      "Priority support",
-      "Download tracking",
-      "API access",
-    ],
-    cta: "Buy Now",
-    popular: true,
-  },
-  {
-    name: "Teams",
-    price: "29",
-    period: "one-time",
-    description: "Advanced features for development teams",
-    features: [
-      "Everything in Pro",
-      "Team collaboration",
-      "Webhook integrations",
-      "Custom branding",
-      "Advanced security features",
-      "White-label solution",
-      "Dedicated support",
-    ],
-    cta: "Buy Now",
-    popular: false,
-  },
-]
 
 export function PricingSection() {
   return (

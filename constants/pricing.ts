@@ -1,0 +1,40 @@
+export const plans = [
+    {
+      name: "Free",
+      price: "0",
+      period: "forever",
+      description: "Perfect for trying out the service",
+      features: ["1 repo share", "Basic link generation", "No expiration", "GitHub integration"],
+      cta: "Get Started",
+      popular: false,
+    },
+    {
+      name: "Pro",
+      price: "9",
+      period: "one-time",
+      description: "Unlimited sharing for serious developers",
+      features: [
+        "15 repo shares",
+        "Custom expiration dates",
+        "Access control permissions",
+        "Advanced analytics",
+        "GitHub integration",
+      ],
+      cta: "Buy Now",
+      popular: true,
+    },
+    {
+      name: "Power User",
+      price: "19",
+      period: "one-time",
+      description: "Advanced features for development teams",
+      features: [
+        "Everything in Pro",
+        "Unlimited repo shares",
+        "BitBucket integration",
+        "GitLab integration",
+      ],
+      cta: "Buy Now",
+      popular: false,
+    },
+]

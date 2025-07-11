@@ -51,18 +51,18 @@ export function HeroSection() {
   }, [currentLine])
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 lg:mt-10">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col gap-16 items-center">
           {/* Left content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
+          <div className="space-y-8 text-center flex flex-col items-center">
+            <div className="space-y-6 flex flex-col items-center">
               <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
                 Share Private GitHub Repos <span className="underline decoration-4 underline-offset-8">Securely</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg font-medium">
+              <p className="text-xl text-muted-foreground max-w-2xl font-medium">
                 Generate secure, time-limited links to share private repositories without adding collaborators. Full
                 control, unlimited shares.
               </p>
@@ -91,7 +91,7 @@ export function HeroSection() {
           </div>
 
           {/* Right content - Code animation */}
-          <div className="relative">
+          {/* <div className="relative">
             <div className="bg-black border border-border/20 p-6 font-mono text-sm">
               <div className="flex items-center justify-between mb-4 pb-3 border-b border-border">
                 <div className="flex items-center space-x-2">
@@ -109,7 +109,7 @@ export function HeroSection() {
                 </pre>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
