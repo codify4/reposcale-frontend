@@ -6,7 +6,7 @@ import { Ripple } from "./magicui/ripple"
 
 export function FinalCTASection() {
     return (
-        <section className="pt-32 pb-20 relative overflow-hidden border border-border/10 mx-30">
+        <section className="pt-32 pb-20 relative overflow-hidden lg:mx-30">
             <Ripple />
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
                 <div className="text-center max-w-4xl mx-auto">
@@ -30,7 +30,8 @@ export function FinalCTASection() {
                         </Button>
                         <Button
                             size="lg"
-                            className="h-12 px-8 font-medium rounded-none"
+                            variant="outline"
+                            className="h-12 px-8 font-medium rounded-none bg-transparent border-white"
                         >
                             View Pricing
                         </Button>

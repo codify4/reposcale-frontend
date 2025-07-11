@@ -15,7 +15,7 @@ export function PricingSection() {
           <div className="inline-block mb-6">
             <span className="text-sm font-mono text-white/60 tracking-wider uppercase">Pricing</span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 tracking-tight leading-tight">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-8 tracking-tight leading-tight">
             Simple, transparent pricing
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
@@ -53,7 +53,7 @@ export function PricingSection() {
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold mb-2 text-white">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-5xl font-black text-white">${plan.price}</span>
+                    <span className="text-5xl font-bold text-white">${plan.price}</span>
                     <span className="text-white/60 ml-2 text-lg">{plan.period}</span>
                   </div>
                   <p className="text-white/70 leading-relaxed">{plan.description}</p>
