@@ -24,7 +24,6 @@ import { TerminalIcon } from "../ui/terminal"
 import { CogIcon } from "../ui/cog"
 
 
-// This is sample data.
 const data = {
     user: {
         name: "shadcn",
@@ -34,27 +33,27 @@ const data = {
     navMain: [
         {
             title: "Home",
-            url: "#",
+            url: "/dashboard",
             icon: <HomeIcon />,
         },
         {
             title: "Shared Repos",
-            url: "#",
+            url: "/dashboard/repos",
             icon: <WaypointsIcon />,
         },
         {
             title: "Analytics",
-            url: "#",
+            url: "/dashboard/analytics",
             icon: <ChartBarIncreasingIcon />,
         },
         {
             title: "Integrations",
-            url: "#",
+            url: "/dashboard/integrations",
             icon: <TerminalIcon />,
         },
         {
             title: "Settings",
-            url: "#",
+            url: "/dashboard/settings",
             icon: <CogIcon />,
         },
     ],

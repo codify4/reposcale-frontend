@@ -2,10 +2,12 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { Button } from '../ui/button'
 import { Sparkles } from 'lucide-react'
+import { ShineBorder } from '../magicui/shine-border'
 
 const PremiumCard = () => {
     return (
-        <Card className="bg-black rounded-none text-white border border-white/20 hover:border-white/40 transition-all duration-300 py-4">
+        <Card className="relative overflow-hidden bg-black rounded-none text-white border-none py-4">
+            <ShineBorder shineColor="white" className='absolute inset-0' />
             <CardHeader className='px-4'>
                 <CardTitle className='flex items-center gap-2'>
                     <Sparkles className="w-4 h-4" color='white' />
