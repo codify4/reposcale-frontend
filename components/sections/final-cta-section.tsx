@@ -1,8 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Link } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Ripple } from "../magicui/ripple"
+import Link from "next/link"
 
 export function FinalCTASection() {
     return (
@@ -21,9 +22,8 @@ export function FinalCTASection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <Link href="/login">
+                        <Link href="/login" className="w-full sm:w-auto">
                             <Button
-                                size="lg"
                                 className="bg-white hover:bg-white/90 text-black h-12 px-8 group rounded-none"
                             >
                                 Get Started Free

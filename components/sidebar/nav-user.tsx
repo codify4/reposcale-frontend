@@ -2,9 +2,11 @@
 
 import {
   BadgeCheck,
+  Book,
   ChevronUp,
   LogOut,
   Sparkles,
+  User,
 } from "lucide-react"
 
 import {
@@ -46,11 +48,11 @@ export function NavUser({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar data-[state=open]:text-white text-white cursor-pointer"
+              className="data-[state=open]:bg-sidebar data-[state=open]:text-white text-white cursor-pointer rounded-none"
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-full bg-neutral-900">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
@@ -68,7 +70,7 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-full bg-neutral-900 text-white">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-white text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
@@ -78,13 +80,13 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuGroup>
               <DropdownMenuItem className="cursor-pointer text-white hover:bg-black/80 transition-colors">
-                <Sparkles />
-                Upgrade to Pro
+                <Book />
+                Blog
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuGroup>
               <DropdownMenuItem className="cursor-pointer text-white hover:bg-black/80 transition-colors">
-                <BadgeCheck />
+                <User />
                 Account
               </DropdownMenuItem>
             </DropdownMenuGroup>
