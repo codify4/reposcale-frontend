@@ -72,20 +72,14 @@ export function Navigation() {
                   <Menu className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[200px]">
+              <DropdownMenuContent align="end" className="bg-black border border-white rounded-none w-[100px] flex flex-col items-end">
                 {navItems.map((item) => (
                   <DropdownMenuItem key={item.name} asChild>
-                    <Link href={item.href} className="font-medium">
+                    <Link href={item.href} className="font-medium text-white">
                       {item.name}
                     </Link>
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-bold">
-                    Get Started
-                  </Button>
-                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
