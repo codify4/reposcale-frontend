@@ -2,9 +2,9 @@ import React from 'react'
 
 function DashboardPage() {
     return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
+        <main className='bg-black h-svh flex items-center justify-center'>
+            <h1 className='text-white text-4xl font-bold'>Dashboard</h1>
+        </main>
     );
 }
 
