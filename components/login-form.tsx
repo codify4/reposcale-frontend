@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Github } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function LoginForm({
   className,
@@ -29,9 +30,11 @@ export function LoginForm({
             </div>
           </form>
           <div className="relative hidden md:block">
-            <img
+            <Image
               src="/vercel.svg"
               alt="Image"
+              width={500}
+              height={500}
             />
           </div>
         </CardContent>
