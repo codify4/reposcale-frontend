@@ -1,7 +1,23 @@
-export default function Home() {
+import { Navigation } from "@/components/navigation"
+import { HeroSection } from "@/components/hero-section"
+import { FeaturesSection } from "@/components/features-section"
+import { PricingSection } from "@/components/pricing-section"
+import { FAQSection } from "@/components/faq-section"
+import { FinalCTASection } from "@/components/final-cta-section"
+import { Footer } from "@/components/footer"
+
+export default function HomePage() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center p-24">
-            <h1>reposcale says hello</h1>
-        </main>
-    );
+        <div className="min-h-screen bg-black text-white">
+            <Navigation />
+            <main>
+                <HeroSection />
+                <FeaturesSection />
+                <PricingSection />
+                <FAQSection />
+                <FinalCTASection />
+            </main>
+            <Footer />
+        </div>
+    )
 }
