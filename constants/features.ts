@@ -45,13 +45,13 @@ export const features = [
     },
     {
       id: 5,
-      title: "Pay Once, Own Forever",
+      title: "Buckets",
       description:
-        "Pay once and use reposcale forever. No recurring fees, no monthly bills.",
+        "Create buckets to organize your repositories. Share buckets with others.",
       longDescription:
-        "Select the plan below that suits your needs. Pay once and use reposcale forever.",
-      cta: "Start sharing",
-      visual: "monetize",
+        "Create buckets to organize your repositories. Share buckets with others. No need to add collaborators to your repository. No need to worry about security. No need to worry about your repository being public.",
+      cta: "Create buckets",
+      visual: "buckets",
       reverse: false,
     },
 ]

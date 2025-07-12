@@ -190,6 +190,18 @@ export function FeaturesSection({ page = false }: { page?: boolean }) {
               </div>
             </div>
           )}
+          {/* Buckets Demo - Organize Repositories */}
+          {type === "buckets" && (
+            <div
+              className="bg-neutral-950 rounded-none px-6 w-full max-w-sm shadow-lg border border-neutral-800 flex flex-col items-center"
+            >
+              <div className="flex items-center gap-2 mb-4 mt-10">
+                <GitBranch className="w-5 h-5 text-white" />
+                <span className="text-white text-sm font-medium">Buckets</span>
+              </div>
+              <BucketsAnimation />
+            </div>
+          )}
         </div>
       </div>
     )
@@ -234,5 +246,72 @@ export function FeaturesSection({ page = false }: { page?: boolean }) {
         </div>
       </div>
     </section>
+  )
+}
+
+function BucketsAnimation() {
+  const [hovered, setHovered] = useState(false)
+  const [inBucket, setInBucket] = useState([false, false, false])
+  const [showCheck, setShowCheck] = useState(false)
+
+  useEffect(() => {
+    if (!hovered) {
+      setInBucket([false, false, false])
+      setShowCheck(false)
+      return
+    }
+    let timeouts = []
+    timeouts.push(setTimeout(() => setInBucket([true, false, false]), 200))
+    timeouts.push(setTimeout(() => setInBucket([true, true, false]), 500))
+    timeouts.push(setTimeout(() => setInBucket([true, true, true]), 800))
+    timeouts.push(setTimeout(() => setShowCheck(true), 1100))
+    return () => timeouts.forEach(clearTimeout)
+  }, [hovered])
+
+  const repoNames = ["api-server", "frontend-ui", "web-app"]
+
+  return (
+    <div
+      className="flex flex-col items-center w-full mt-4"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ minHeight: 180 }}
+    >
+      {/* Repo chips - row, same size, gap, centered */}
+      <div className="flex flex-row justify-center items-center gap-4 w-full mb-4" style={{ minHeight: 40 }}>
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="transition-all duration-500 z-10"
+            style={{
+              transform: `translateY(${inBucket[i] ? 70 : 0}px)`,
+              opacity: inBucket[i] ? 0 : 1,
+              transition: `transform 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.12}s, opacity 0.4s cubic-bezier(0.4,0,0.2,1) ${i * 0.12}s`,
+              pointerEvents: 'none',
+              minWidth: 110,
+              maxWidth: 110,
+            }}
+          >
+            <div className="flex items-center gap-2 px-4 py-2 bg-neutral-800 rounded-full border border-neutral-700 text-white text-xs font-mono shadow-sm w-[110px] h-10 justify-center">
+              <GitBranch className="w-4 h-4 text-green-400" />
+              {repoNames[i]}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Bucket - bigger */}
+      <div className="relative flex flex-col items-center">
+        <div
+          className={`transition-all duration-500 ${inBucket.every(Boolean) ? "ring-2 ring-green-400/60" : inBucket.some(Boolean) ? "ring-2 ring-green-400/20" : "ring-0"}`}
+          style={{ borderRadius: 20 }}
+        >
+          {/* Bigger bucket icon */}
+          <svg width="110" height="70" viewBox="0 0 110 70" fill="none">
+            <rect x="10" y="30" width="90" height="34" rx="10" fill="#222" stroke="#4ade80" strokeWidth="3"/>
+            <rect x="30" y="12" width="50" height="22" rx="7" fill="#333" stroke="#666" strokeWidth="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
   )
 }
