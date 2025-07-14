@@ -10,7 +10,7 @@ export const plans = [
     },
     {
       name: "Pro",
-      price: "9",
+      price: "9.99",
       period: "one-time",
       description: "Unlimited sharing for serious developers",
       features: [
@@ -25,7 +25,7 @@ export const plans = [
     },
     {
       name: "Power User",
-      price: "19",
+      price: "19.99",
       period: "one-time",
       description: "Advanced features for development teams",
       features: [
