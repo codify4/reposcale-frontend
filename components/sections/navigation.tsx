@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Menu, Github, Sun, Moon } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,11 +40,8 @@ export function Navigation() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-foreground flex items-center justify-center">
-              <Github className="h-5 w-5 text-background" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">reposcale</span>
+          <div className="flex flex-row items-center justify-center gap-1">
+            <Image src="/reposcale.svg" alt="reposcale logo small" width={100} height={50} />
           </div>
 
           {/* Desktop Navigation */}

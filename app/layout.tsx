@@ -11,6 +11,9 @@ const geistSans = Geist({
 export const metadata: Metadata = {
     title: "reposcale",
     description: "reposcale is a tool for sharing your github repositories",
+    alternates: {
+        canonical: "https://reposcale.vercel.app",
+    }
 }
 
 export default function RootLayout({
