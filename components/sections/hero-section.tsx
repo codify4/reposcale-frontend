@@ -86,7 +86,7 @@ export function HeroSection() {
   }, [terminalText]);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10 lg:px-28">
+    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
       {/* Floating code elements */}
@@ -105,16 +105,16 @@ export function HeroSection() {
         </div>
       ))}
       
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 lg:mx-20">
-        <div className="flex gap-16">
+      <div className="container mx-auto px-6 lg:px-8 xl:px-12 relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 xl:gap-16">
           {/* Left content */}
-          <div className="space-y-8 text-start flex flex-col">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+          <div className="flex-1 lg:max-w-[45%] xl:max-w-[50%] space-y-6 lg:space-y-8 text-start">
+            <div className="space-y-4 lg:space-y-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
                 Share Private GitHub Repos <span className="underline decoration-4 underline-offset-8">Securely</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground max-w-2xl font-medium">
+              <p className="text-lg lg:text-xl xl:text-2xl text-muted-foreground max-w-2xl font-medium leading-relaxed">
                 Generate secure, time-limited links to share private repositories without adding collaborators. Full
                 control, unlimited shares.
               </p>
@@ -132,7 +132,7 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <div className="flex items-center space-x-8 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-6 lg:space-x-8 text-sm lg:text-base text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <div className="w-1 h-1 bg-foreground"></div>
                 <span>No credit card required</span>
@@ -143,45 +143,45 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Right content - Terminal animation */}
-      <div className="relative w-11/12 lg:w-1/2 mt-10 lg:mt-0 lg:mr-32">
-        {/* Terminal window */}
-        <div className="bg-black border border-white/20 relative scrollbar-hide">
-          {/* Terminal header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/20 bg-black">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-xs text-white/60 ml-4">Sharing Process — reposcale</span>
+          
+          {/* Right content - Terminal animation */}
+          <div className="flex-1 lg:max-w-[55%] xl:max-w-[50%] w-full lg:pl-8">
+            {/* Terminal window */}
+            <div className="bg-black border border-white/20 relative scrollbar-hide">
+              {/* Terminal header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/20 bg-black">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span className="text-xs text-white/60 ml-4">Sharing Process — reposcale</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Share2 className="w-4 h-4 text-white/40" />
+                  <span className="text-xs text-white/40">live demo</span>
+                </div>
+              </div>
+
+              {/* Terminal content */}
+              <div
+                ref={terminalContentRef}
+                className="p-4 font-mono text-sm min-h-[400px] lg:min-h-[450px] xl:min-h-[500px] bg-black"
+              >
+                <div className="text-green-400 mb-2">Reposcale - Private Repository Sharing</div>
+                <div className="text-white/60 mb-4">Watch how easy it is to share your private repos</div>
+
+                <pre className="text-white leading-relaxed whitespace-pre-wrap">
+                  {terminalText}
+                  {showCursor && <span className="bg-white w-2 h-5 inline-block ml-1"></span>}
+                </pre>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Share2 className="w-4 h-4 text-white/40" />
-              <span className="text-xs text-white/40">live demo</span>
+
+            {/* Floating security badges */}
+            <div className="absolute -top-4 -right-4 bg-white text-black px-3 py-1 text-xs font-bold animate-bounce">
+              🔒 SECURE
             </div>
           </div>
-
-          {/* Terminal content */}
-          <div
-            ref={terminalContentRef}
-            className="p-4 font-mono text-sm min-h-[400px] bg-black"
-          >
-            <div className="text-green-400 mb-2">Reposcale - Private Repository Sharing</div>
-            <div className="text-white/60 mb-4">Watch how easy it is to share your private repos</div>
-
-            <pre className="text-white leading-relaxed whitespace-pre-wrap">
-              {terminalText}
-              {showCursor && <span className="bg-white w-2 h-5 inline-block ml-1"></span>}
-            </pre>
-          </div>
-        </div>
-
-        {/* Floating security badges */}
-        <div className="absolute -top-4 -right-4 bg-white text-black px-3 py-1 text-xs font-bold animate-bounce">
-          🔒 SECURE
         </div>
       </div>
     </section>

@@ -31,8 +31,8 @@ export const plans = [
       features: [
         "Everything in Pro",
         "Unlimited repo shares",
-        "BitBucket integration",
-        "GitLab integration",
+        "Bucket sharing (soon)",
+        "More coming soon",
       ],
       cta: "Buy Now",
       popular: false,
