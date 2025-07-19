@@ -43,15 +43,15 @@ export const features = [
       visual: "publish",
       reverse: true,
     },
-    // {
-    //   id: 5,
-    //   title: "Buckets (Coming Soon)",
-    //   description:
-    //     "Create buckets to organize your repositories. Share buckets with others.",
-    //   longDescription:
-    //     "Create buckets to organize your repositories. Share buckets with others. No need to add collaborators to your repository. No need to worry about security. No need to worry about your repository being public.",
-    //   cta: "Create buckets",
-    //   visual: "buckets",
-    //   reverse: false,
-    // },
+    {
+      id: 5,
+      title: "Buckets",
+      description:
+        "Create buckets to organize your repositories. Share buckets with others.",
+      longDescription:
+        "Create buckets to organize your repositories. Share buckets with others. No need to add collaborators to your repository. No need to worry about security. No need to worry about your repository being public.",
+      cta: "Create buckets",
+      visual: "buckets",
+      reverse: false,
+    },
 ]
