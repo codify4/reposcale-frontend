@@ -1,4 +1,3 @@
-
 import { AnimatedBackground } from "./components/animated-bg"
 import { WaitlistForm } from "./components/waitlist-form"
 import Image from "next/image"
