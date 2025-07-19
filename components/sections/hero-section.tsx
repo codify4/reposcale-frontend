@@ -121,12 +121,12 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/login">
+              <Link href="/waitlist">
                 <Button
                   size="lg"
                   className="bg-white text-black hover:bg-white/90 h-12 px-8 group rounded-none"
                 >
-                  Start sharing
+                  Join Waitlist
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

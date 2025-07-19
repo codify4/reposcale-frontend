@@ -17,16 +17,15 @@ export function FinalCTASection() {
                     </h2>
 
                     <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-                        Join thousands of developers who trust reposcale for secure, effortless repository sharing. Start free or
-                        unlock unlimited sharing with a one-time purchase.
+                        Join the waitlist for 50% off on reposcale when we launch. The most secure way to share your private repositories.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <Link href="/login" className="w-full sm:w-auto">
+                        <Link href="/waitlist" className="w-full sm:w-auto">
                             <Button
                                 className="bg-white hover:bg-white/90 text-black h-12 px-8 group rounded-none"
                             >
-                                Get Started Free
+                                Join the waitlist
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>

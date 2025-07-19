@@ -234,12 +234,12 @@ export function FeaturesSection({ page = false }: { page?: boolean }) {
                 <p className="text-lg text-gray-600 leading-relaxed">
                   {page ? feature.longDescription : feature.description}
                 </p>
-                <NextLink href="/login">
+                {/* <NextLink href="/login">
                   <Button className="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-black px-6 py-5 rounded-none font-medium transition-all duration-200 hover:scale-105">
                     {feature.cta}
                     <ArrowRight className="w-4 h-4" />
                   </Button>
-                </NextLink>
+                </NextLink> */}
               </div>
             </div>
           ))}
