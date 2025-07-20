@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     description: "reposcale is a tool for sharing your github repositories",
     alternates: {
         canonical: "https://reposcale.vercel.app",
+    },
+    icons: {
+        icon: "/rs-logo.png",
+        apple: "/rs-logo.png",
     }
 }
 
