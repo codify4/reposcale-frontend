@@ -5,7 +5,7 @@ import Image from "next/image"
 export default function LoginPage() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
-      <div className="bg-black relative hidden lg:block overflow-hidden">
+      <div className="bg-black relative block overflow-hidden">
         <AnimatedBackground />
       </div>
       <div className="flex flex-col gap-4 p-6 md:p-10">

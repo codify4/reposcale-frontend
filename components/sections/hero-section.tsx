@@ -178,7 +178,7 @@ export function HeroSection() {
             </div>
 
             {/* Floating security badges */}
-            <div className="absolute -top-4 -right-4 bg-white text-black px-3 py-1 text-xs font-bold animate-bounce">
+            <div className="absolute -top-4 right-0  bg-white text-black px-3 py-1 text-xs font-bold animate-bounce">
               🔒 SECURE
             </div>
           </div>
