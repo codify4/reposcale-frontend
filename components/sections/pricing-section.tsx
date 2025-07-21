@@ -44,10 +44,10 @@ export function PricingSection() {
 
               {/* Card */}
               <div
-                className={`relative bg-black border rounded-none p-8 h-full transition-all duration-300 ${
+                className={`relative bg-black border border-white/50 rounded-none p-8 h-full transition-all duration-300 ${
                   plan.popular
                     ? "border-white/30 bg-white/[0.02]"
-                    : "border-white/10 hover:border-white/20 hover:bg-white/[0.01]"
+                    : "border-white/50 hover:border-white/50 hover:bg-white/[0.01]"
                 }`}
               >
                 {/* Header */}
@@ -75,7 +75,7 @@ export function PricingSection() {
                 </ul>
 
                 {/* CTA Button */}
-                <Link href="/login">
+                <Link href="/waitlist">
                   <Button
                     className={`w-full group transition-all duration-300 rounded-none ${
                       plan.popular
