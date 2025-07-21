@@ -1,11 +1,9 @@
 "use client"
 
 import {
-  BadgeCheck,
   Book,
   ChevronUp,
   LogOut,
-  Sparkles,
   User,
 } from "lucide-react"
 
@@ -20,7 +18,6 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
@@ -29,6 +26,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { useRouter } from "next/navigation"
 
 export function NavUser({
   user,
@@ -40,7 +38,7 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
-
+  const router = useRouter()
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -85,7 +83,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuGroup>
-              <DropdownMenuItem className="cursor-pointer text-white hover:bg-black/80 transition-colors">
+              <DropdownMenuItem className="cursor-pointer text-white hover:bg-black/80 transition-colors" onClick={() => router.push("/dashboard/settings")}>
                 <User />
                 Account
               </DropdownMenuItem>

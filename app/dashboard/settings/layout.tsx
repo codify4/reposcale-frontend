@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function SettingsLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className='bg-black h-svh flex items-center justify-center'>
+        <div className='bg-black min-h-svh flex items-center justify-center p-5'>
             {children}
         </div>
     )
