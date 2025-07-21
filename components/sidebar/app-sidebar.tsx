@@ -22,6 +22,7 @@ import { HomeIcon } from "../ui/home"
 import { WaypointsIcon } from "../ui/waypoints"
 import { TerminalIcon } from "../ui/terminal"
 import { CogIcon } from "../ui/cog"
+import Image from "next/image"
 
 
 const data = {
@@ -66,14 +67,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                        <div>
-                            <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                                <Github className="size-4" />
+                            <div className="flex items-center gap-2">
+                                <Image src="/reposcale.svg" alt="reposcale" width={100} height={100} />
                             </div>
-                            <div className="flex flex-col gap-0.5 leading-none">
-                                <span className="font-medium text-white">reposcale</span>
-                            </div>
-                        </div>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
