@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "sonner";
-import { BotOff, CheckCircle, Rocket, XCircle } from "lucide-react";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +31,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={`${geistSans.variable} antialiased bg-black`}>
                 {children}
+                <Analytics />
                 <Toaster 
                     position="top-center"
                 />

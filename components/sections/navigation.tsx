@@ -60,7 +60,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/waitlist">
               <Button className="bg-white text-black hover:bg-white/90 h-9 px-6">
-                Get Started
+                Join
               </Button>
             </Link>
           </div>

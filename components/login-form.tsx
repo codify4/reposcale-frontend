@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Github } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import { AnimatedBackground } from "@/app/waitlist/components/animated-bg"
 
 export function LoginForm({
   className,
@@ -11,7 +11,7 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col gap-10 md:gap-16 items-center justify-center min-h-[60vh]", className)} {...props}>
-      <Card className="overflow-hidden p-0 rounded-none bg-black text-white shadow-lg">
+      <Card className="p-0 rounded-none bg-black text-white shadow-lg">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form className="p-10 w-full">
             <div className="flex flex-col gap-10">
@@ -29,13 +29,8 @@ export function LoginForm({
               </Link>
             </div>
           </form>
-          <div className="relative hidden md:block">
-            <Image
-              src="/vercel.svg"
-              alt="Image"
-              width={500}
-              height={500}
-            />
+          <div className="bg-black relative block overflow-hidden">
+            <AnimatedBackground />
           </div>
         </CardContent>
       </Card>
