@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Users, GitBranch, Database } from "lucide-react"
 import { LinkMemberChart } from "./components/member-chart"
 import { TopLinksTable } from "./components/top-links-table"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 const mockData = {
     totalSharedRepos: 24,
@@ -35,13 +36,15 @@ const mockData = {
 function AnalyticsPage() {
     return (
         <div className="w-11/12 bg-black text-white">
-            <div className="space-y-2">
-                <h1 className="text-3xl font-bold">Analytics</h1>
-                <p className="text-gray-400">Track your repository performance and user engagement</p>
+            <div className='flex flex-row items-center justify-between w-full'>
+                <div className='w-full lg:w-auto'>
+                    <h1 className='text-white text-xl lg:text-3xl font-bold'>Analytics</h1>
+                    <p className='text-gray-400 mt-1'>Track your analytics</p>
+                </div>
+                <SidebarTrigger className="lg:hidden" />
             </div>
             
             <div className="w-full flex flex-col gap-8 mt-5">
-                {/* Overview Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <Card className="bg-black border-border/20 rounded-none text-white">
                         <CardHeader className="pb-3">

@@ -47,7 +47,6 @@ function ReposPage() {
   return (
     <main className='bg-black min-h-screen p-5 lg:p-10'>
       <div className='max-w-7xl mx-auto space-y-6'>
-        {/* Header */}
         <div className='flex flex-col lg:flex-row w-full items-center lg:justify-between'>
           <div className='flex flex-row items-center justify-between w-full'>
             <div className='w-full lg:w-auto'>
@@ -65,7 +64,6 @@ function ReposPage() {
           </Button>
         </div>
 
-        {/* Links Grid */}
         <div className='grid gap-4'>
           {mockLinks.map((link) => (
             <Card key={link.id} className='bg-black border-border/20 rounded-none'>
@@ -97,7 +95,6 @@ function ReposPage() {
               </CardHeader>
               <CardContent className='pt-0'>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-                  {/* Members */}
                   <div className='flex items-center gap-2'>
                     <Users className='w-4 h-4 text-gray-400' />
                     <div>
@@ -106,7 +103,6 @@ function ReposPage() {
                     </div>
                   </div>
 
-                  {/* Expires At */}
                   <div className='flex items-center gap-2'>
                     <Calendar className='w-4 h-4 text-gray-400' />
                     <div>
@@ -115,7 +111,6 @@ function ReposPage() {
                     </div>
                   </div>
 
-                  {/* Member Limit */}
                   <div className='flex items-center gap-2'>
                     <Shield className='w-4 h-4 text-gray-400' />
                     <div>
@@ -124,7 +119,6 @@ function ReposPage() {
                     </div>
                   </div>
 
-                  {/* Password Protection */}
                   <div className='flex items-center gap-2'>
                     <Lock className='w-4 h-4 text-gray-400' />
                     <div>
@@ -144,7 +138,6 @@ function ReposPage() {
 
                 <Separator className='my-4 bg-border/20' />
 
-                {/* Status Badge */}
                 <div className='flex items-center justify-between'>
                   <Badge 
                     className='text-xs rounded-none border-0'
@@ -161,7 +154,6 @@ function ReposPage() {
           ))}
         </div>
 
-        {/* Empty State */}
         {mockLinks.length === 0 && (
           <Card className='bg-gray-900 border-gray-800 rounded-none'>
             <CardContent className='flex flex-col items-center justify-center py-12'>

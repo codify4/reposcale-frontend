@@ -16,6 +16,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 function SettingsPage() {
     const [logoutDialogOpen, setLogoutDialogOpen] = useState(false)
@@ -37,9 +38,12 @@ function SettingsPage() {
 
     return (
         <div className="w-11/12 bg-black text-white">
-            <div className="space-y-2">
-                <h1 className="text-3xl font-bold">Settings</h1>
-                <p className="text-gray-400">Manage your account and preferences</p>
+            <div className='flex flex-row items-center justify-between w-full'>
+                <div className='w-full lg:w-auto'>
+                    <h1 className='text-white text-xl lg:text-3xl font-bold'>Settings</h1>
+                    <p className='text-gray-400 mt-1'>Manage your account and preferences</p>
+                </div>
+                <SidebarTrigger className="lg:hidden" />
             </div>
             <div className="w-full flex flex-col gap-8 mt-5">
                 <Card className="bg-black border-border/20 rounded-none text-white w-full">

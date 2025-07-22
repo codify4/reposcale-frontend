@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function BucketsLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className='bg-black h-svh flex items-center justify-center'>
+        <div>
             {children}
         </div>
     )
