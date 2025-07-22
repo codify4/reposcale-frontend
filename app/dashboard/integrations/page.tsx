@@ -19,6 +19,7 @@ import {
     Calendar,
     Gitlab
 } from "lucide-react"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 interface GitHubIntegration {
     id: string
@@ -76,9 +77,12 @@ function IntegrationsPage() {
     return (
         <div className="bg-black min-h-screen p-6 w-full">
             <div className="max-w-4xl mx-auto">
-                <div className="mb-8">
-                    <h1 className="text-white text-3xl font-bold mb-2">Integrations</h1>
-                    <p className="text-neutral-400">Manage your Git provider integrations</p>
+                <div className='flex flex-row items-center justify-between w-full'>
+                    <div className='w-full lg:w-auto'>
+                        <h1 className='text-white text-xl lg:text-3xl font-bold'>Integrations</h1>
+                        <p className='text-gray-400 mt-1'>Manage your Git provider integrations</p>
+                    </div>
+                    <SidebarTrigger className="lg:hidden" />
                 </div>
 
                 <Card className="border border-border/20 rounded-none bg-black text-white">

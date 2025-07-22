@@ -3,11 +3,11 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 
 export const metadata = {
-    title: "Dashboard | reposcale",
-    description: "Dashboard for reposcale",
+    title: "shared repos | reposcale",
+    description: "shared repos dashboard",
 };
 
-export default function DashboardLayout({
+export default function ReposLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;

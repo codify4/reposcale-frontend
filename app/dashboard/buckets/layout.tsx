@@ -1,9 +1,9 @@
 export const metadata = {
-    title: 'Shared Repos | Dashboard',
+    title: 'buckets | reposcale',
     description: 'Shared Repos',
 }
 
-export default function ReposLayout({ children }: { children: React.ReactNode }) {
+export default function BucketsLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className='bg-black h-svh flex items-center justify-center'>
             {children}

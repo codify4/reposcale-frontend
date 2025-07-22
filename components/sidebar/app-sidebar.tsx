@@ -1,10 +1,6 @@
 "use client"
 
-import * as React from "react"
-import {
-  Github,
-} from "lucide-react"
-
+import Image from "next/image"
 import { NavMain } from "@/components/sidebar/nav-main"
 import { NavUser } from "@/components/sidebar/nav-user"
 import {
@@ -18,11 +14,10 @@ import {
 } from "@/components/ui/sidebar"
 import PremiumCard from "./premium-card"
 import { ChartBarIncreasingIcon } from "../ui/chart-bar-increasing"
-import { HomeIcon } from "../ui/home"
 import { WaypointsIcon } from "../ui/waypoints"
 import { TerminalIcon } from "../ui/terminal"
 import { CogIcon } from "../ui/cog"
-import Image from "next/image"
+import { FoldersIcon } from "../ui/folders"
 
 
 const data = {
@@ -33,14 +28,14 @@ const data = {
     },
     navMain: [
         {
-            title: "Home",
+            title: "Shared Repos",
             url: "/dashboard",
-            icon: <HomeIcon />,
+            icon: <WaypointsIcon />,
         },
         {
-            title: "Shared Repos",
-            url: "/dashboard/repos",
-            icon: <WaypointsIcon />,
+            title: "Buckets",
+            url: "/dashboard/buckets",
+            icon: <FoldersIcon />,
         },
         {
             title: "Analytics",
