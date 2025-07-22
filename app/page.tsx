@@ -13,7 +13,7 @@ export default function HomePage() {
             <main className="bg-black">
                 <HeroSection />
                 <FeaturesSection />
-                {/* <PricingSection /> */}
+                <PricingSection />
                 <FAQSection />
                 <FinalCTASection />
             </main>

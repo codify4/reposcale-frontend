@@ -25,7 +25,7 @@ export function Navigation() {
 
   const navItems = [
     { name: "Features", href: "#features" },
-    // { name: "Pricing", href: "#pricing" },
+    { name: "Pricing", href: "#pricing" },
     { name: "FAQ", href: "#faq" },
   ]
 
@@ -58,9 +58,9 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/waitlist">
+            <Link href="/dashboard">
               <Button className="bg-white text-black hover:bg-white/90 h-9 px-6">
-                Join
+                Sneak Peek
               </Button>
             </Link>
           </div>
