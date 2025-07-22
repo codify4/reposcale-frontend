@@ -116,7 +116,7 @@ export function LinkMemberChart() {
             tickFormatter={(value: string) => value.slice(0, 3)}
             className="text-white"
           />
-          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+          <ChartTooltip cursor={false} content={<ChartTooltipContent />}  />
           <defs>
             <linearGradient id="fillRepo1" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
