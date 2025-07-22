@@ -14,7 +14,6 @@ export const plans = [
       price: "4.99",
       originalPrice: "9.99",
       period: "one-time",
-      description: "For serious developers small teams",
       features: [
         "20 GitHub repo shares",
         "Custom expiration dates",
@@ -29,7 +28,6 @@ export const plans = [
       price: "9.99",
       originalPrice: "19.99",
       period: "one-time",
-      description: "For power users and development teams",
       features: [
         "Everything in Pro",
         "Unlimited GitHub repo shares",

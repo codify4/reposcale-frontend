@@ -1,14 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { DollarSign, ArrowRight, Eye, GitBranch, Users, Shield, Clock } from "lucide-react"
+import { DollarSign, ArrowRight, Eye, GitBranch, Users, Shield, Clock, Share } from "lucide-react"
 import { features } from "@/constants/features"
-import { Button } from "../ui/button"
-import NextLink from "next/link"
 
 export function FeaturesSection({ page = false }: { page?: boolean }) {
   const VisualDemo = ({ type }: { type: string }) => {
-    // Monetize number animation state
     const [monetizeAmount, setMonetizeAmount] = useState(0)
     const [isMonetizeHovered, setIsMonetizeHovered] = useState(false)
 
@@ -152,55 +149,9 @@ export function FeaturesSection({ page = false }: { page?: boolean }) {
               </div>
             </div>
           )}
-          {/* Monetize Demo - Pay Once, Own Forever */}
-          {type === "monetize" && (
-            <div
-              className="bg-neutral-950 rounded-none p-6 w-full max-w-sm shadow-lg border border-neutral-800 flex flex-col items-center"
-              onMouseEnter={() => setIsMonetizeHovered(true)}
-              onMouseLeave={() => setIsMonetizeHovered(false)}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <DollarSign className="w-5 h-5 text-white" />
-                <span className="text-white text-sm font-medium">Lifetime Access</span>
-              </div>
-              <div className="space-y-4 w-full">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white transition-all duration-500 group-hover/card:scale-110">
-                    $19
-                  </div>
-                  <div className="text-xs text-neutral-500">One-time payment</div>
-                </div>
-                {/* Lifetime benefits animate in on hover */}
-                <div className="opacity-0 translate-y-4 group-hover/card:opacity-100 group-hover/card:translate-y-0 transition-all duration-500">
-                  <div className="space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-green-400">
-                      <div className="w-1 h-1 bg-green-400" />
-                      <span>Unlimited repositories</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-green-400">
-                      <div className="w-1 h-1 bg-green-400" />
-                      <span>No monthly fees</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-green-400">
-                      <div className="w-1 h-1 bg-green-400" />
-                      <span>Forever yours</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
           {/* Buckets Demo - Organize Repositories */}
           {type === "buckets" && (
-            <div
-              className="bg-neutral-950 rounded-none px-6 w-full max-w-sm shadow-lg border border-neutral-800 flex flex-col items-center"
-            >
-              <div className="flex items-center gap-2 mb-4 mt-10">
-                <GitBranch className="w-5 h-5 text-white" />
-                <span className="text-white text-sm font-medium">Buckets</span>
-              </div>
-              <BucketsAnimation />
-            </div>
+            <BucketsAnimation />
           )}
         </div>
       </div>
@@ -251,65 +202,48 @@ export function FeaturesSection({ page = false }: { page?: boolean }) {
 
 function BucketsAnimation() {
   const [hovered, setHovered] = useState(false)
-  const [inBucket, setInBucket] = useState([false, false, false])
-  const [showCheck, setShowCheck] = useState(false)
-
-  useEffect(() => {
-    if (!hovered) {
-      setInBucket([false, false, false])
-      setShowCheck(false)
-      return
-    }
-    let timeouts = []
-    timeouts.push(setTimeout(() => setInBucket([true, false, false]), 200))
-    timeouts.push(setTimeout(() => setInBucket([true, true, false]), 500))
-    timeouts.push(setTimeout(() => setInBucket([true, true, true]), 800))
-    timeouts.push(setTimeout(() => setShowCheck(true), 1100))
-    return () => timeouts.forEach(clearTimeout)
-  }, [hovered])
-
-  const repoNames = ["api-server", "frontend-ui", "web-app"]
 
   return (
     <div
-      className="flex flex-col items-center w-full mt-4"
+      className="bg-neutral-950 rounded-none p-6 w-full max-w-sm shadow-lg border border-neutral-800 flex flex-col items-center"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ minHeight: 180 }}
     >
-      {/* Repo chips - row, same size, gap, centered */}
-      <div className="flex flex-row justify-center items-center gap-4 w-full mb-4" style={{ minHeight: 40 }}>
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className="transition-all duration-500 z-10"
-            style={{
-              transform: `translateY(${inBucket[i] ? 70 : 0}px)`,
-              opacity: inBucket[i] ? 0 : 1,
-              transition: `transform 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.12}s, opacity 0.4s cubic-bezier(0.4,0,0.2,1) ${i * 0.12}s`,
-              pointerEvents: 'none',
-              minWidth: 110,
-              maxWidth: 110,
-            }}
-          >
-            <div className="flex items-center gap-2 px-4 py-2 bg-neutral-800 rounded-full border border-neutral-700 text-white text-xs font-mono shadow-sm w-[110px] h-10 justify-center">
-              <GitBranch className="w-4 h-4 text-green-400" />
-              {repoNames[i]}
-            </div>
-          </div>
-        ))}
+      <div className="flex items-center gap-2 mb-4">
+        <GitBranch className="w-5 h-5 text-white" />
+        <span className="text-white text-sm font-medium">Buckets</span>
       </div>
-      {/* Bucket - bigger */}
-      <div className="relative flex flex-col items-center">
-        <div
-          className={`transition-all duration-500 ${inBucket.every(Boolean) ? "ring-2 ring-green-400/60" : inBucket.some(Boolean) ? "ring-2 ring-green-400/20" : "ring-0"}`}
-          style={{ borderRadius: 20 }}
-        >
-          {/* Bigger bucket icon */}
-          <svg width="110" height="70" viewBox="0 0 110 70" fill="none">
-            <rect x="10" y="30" width="90" height="34" rx="10" fill="#222" stroke="#4ade80" strokeWidth="3"/>
-            <rect x="30" y="12" width="50" height="22" rx="7" fill="#333" stroke="#666" strokeWidth="2"/>
-          </svg>
+      
+      <div className="space-y-3 w-full">
+        {/* Repository list */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-neutral-500">
+            <span className="text-xs">Repositories:</span>
+            <span className="text-xs">3</span>
+          </div>
+          
+          <div className="space-y-1">
+            {["api-server", "frontend-ui", "web-app"].map((repo, i) => (
+              <div
+                key={i}
+                className={`flex items-center gap-2 px-2 py-1 bg-neutral-900 border border-neutral-800 text-xs transition-all duration-300 ${
+                  hovered ? 'opacity-0 translate-x-2' : 'opacity-100 translate-x-0'
+                }`}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <GitBranch className="w-3 h-3 text-neutral-400" />
+                <span className="text-neutral-300 font-mono">{repo}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bucket indicator */}
+        <div className={`flex items-center gap-2 mt-3 transition-all duration-300 ${
+          hovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+        }`}>
+          <div className="w-2 h-2 bg-green-500 rounded-full" />
+          <span className="text-xs text-neutral-400">Organized in bucket</span>
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ export function PricingSection() {
                 className="flex flex-col justify-between relative bg-black border border-white/50 rounded-none p-8 h-full transition-all duration-300 hover:border-white/50"
               >
                 <div className="flex flex-col justify-start">
-                  <div className="mb-8">
+                  <div className="mb-2">
                     <h3 className="text-2xl font-bold mb-2 text-white">{plan.name}</h3>
                     <div className="mb-4">
                       <div className="flex items-center gap-2">
@@ -67,7 +67,6 @@ export function PricingSection() {
                         </div>
                       )}
                     </div>
-                    <p className="text-white/70 leading-relaxed">{plan.description}</p>
                   </div>
 
                   <ul className="space-y-4">
