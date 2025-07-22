@@ -21,7 +21,7 @@ export function FinalCTASection() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                        <Link href="/waitlist" className="w-full sm:w-auto">
+                        <Link href="#hero" className="w-full sm:w-auto">
                             <Button
                                 className="bg-white hover:bg-white/90 text-black h-12 px-8 group rounded-none"
                             >

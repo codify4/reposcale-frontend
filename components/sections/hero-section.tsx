@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Share2 } from "lucide-react"
-import { floatingElements, steps } from "@/constants/steps"
-import Link from "next/link"
+import { steps } from "@/constants/steps"
+import { addToWaitlist, getWaitlistSize } from "@/actions/waitlist"
+import { Input } from "../ui/input"
+import { toast } from "sonner"
 
 export function HeroSection() {
   const [terminalText, setTerminalText] = useState("")
@@ -12,6 +14,10 @@ export function HeroSection() {
   const [showCursor, setShowCursor] = useState(true)
   const [generatedLink, setGeneratedLink] = useState("")
   const [showSuccess, setShowSuccess] = useState(false)
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [waitlistSize, setWaitlistSize] = useState<number>(0)
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -85,8 +91,48 @@ export function HeroSection() {
     }
   }, [terminalText]);
 
+  useEffect(() => {
+    const loadWaitlistSize = async () => {
+      try {
+        const size = await getWaitlistSize()
+        setWaitlistSize(size.length)
+      } catch (error) {
+        console.error('Failed to load waitlist size:', error)
+      }
+    }
+    
+    loadWaitlistSize()
+  }, [])
+
+  const handleSubmit = async (formData: FormData) => {
+    setIsSubmitting(true)
+    const response = await addToWaitlist(formData);
+    if (response.error) {
+      toast.error("Failed to add to waitlist!", {
+        style: {
+          background: 'black',
+          color: 'white',
+          border: '1px solid white',
+          borderRadius: '0',
+        },
+      })
+    }
+
+    toast.success("Added to waitlist!", {
+      style: {
+        background: 'black',
+        color: 'white',
+        border: '1px solid white',
+        borderRadius: '0',
+      },
+    });
+
+    setIsSubmitting(false)
+    return response
+  }
+
   return (
-    <section id="home" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10">
+    <section id="hero" className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden mt-32 lg:mt-10">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       
       <div className="container mx-auto px-6 lg:px-8 xl:px-12 relative z-10 w-full">
@@ -103,16 +149,38 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/waitlist">
+            <div className="flex flex-col items-start justify-start gap-4">
+              <form action={handleSubmit} className="flex flex-col items-center justify-center sm:flex-row gap-3 w-full max-w-md">
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="off"
+                />
                 <Button
-                  size="lg"
-                  className="bg-white text-black hover:bg-white/90 h-12 px-8 group rounded-none"
+                  type="submit"
+                  className="bg-white text-black hover:bg-white/90 px-8 group rounded-none"
                 >
-                  Join Waitlist
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? (
+                    "Joining..."
+                  ) : (
+                    <>
+                      Join Waitlist
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
-              </Link>
+              </form>
+              
+              <div className="text-green-400 text-sm mt-2 text-center">
+                <span className="flex flex-row items-center gap-2">
+                  <div className="bg-green-400 w-2 h-2 rounded-full animate-pulse"></div>
+                  <strong>{waitlistSize.toLocaleString()}</strong> people have joined the waitlist
+                  </span>
+              </div>
             </div>
           </div>
           

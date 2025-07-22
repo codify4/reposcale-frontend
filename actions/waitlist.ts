@@ -1,14 +1,13 @@
 'use server'
 
 export async function addToWaitlist(formData: FormData) {
-    const name = formData.get('name') as string
     const email = formData.get('email') as string
 
     const url = process.env.NODE_ENV === 'development' ? process.env.DEV_BACKEND_URL : process.env.PROD_BACKEND_URL
 
     const response = await fetch(`${url}/waitlist`, {
         method: 'POST',
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ email }),
         headers: {
             'Content-Type': 'application/json',
         },
@@ -19,5 +18,22 @@ export async function addToWaitlist(formData: FormData) {
     }
 
     
+    return response.json()
+}
+
+export async function getWaitlistSize() {
+    const url = process.env.NODE_ENV === 'development' ? process.env.DEV_BACKEND_URL : process.env.PROD_BACKEND_URL
+
+    const response = await fetch(`${url}/waitlist`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+
+    if (!response.ok) {
+        return 0
+    }
+
     return response.json()
 }

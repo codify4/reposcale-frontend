@@ -1,4 +1,4 @@
-import { Github } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
     return (
@@ -6,10 +6,7 @@ export function Footer() {
             <div className="container mx-auto px-6 lg:px-8 py-16 flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center justify-center text-center">
                     <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-8 h-8 bg-foreground flex items-center justify-center">
-                            <Github className="h-5 w-5 text-background" />
-                        </div>
-                        <span className="text-xl font-bold tracking-tight">reposcale</span>
+                        <Image src="/reposcale.svg" alt="Logo" width={100} height={100} />
                     </div>
                     <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
                         Secure, effortless private GitHub repository sharing. One-time purchase, unlimited shares, full control.

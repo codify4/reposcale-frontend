@@ -18,7 +18,7 @@ export function PricingSection() {
           <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
             One-time purchase. No subscriptions. Own it forever.
           </p>
-          <Link href="/waitlist">
+          <Link href="#hero">
             <Button
               className={`group transition-all duration-300 rounded-none bg-white text-black hover:bg-white/90 hover:scale-[1.02] mt-5 py-5`}
             >
