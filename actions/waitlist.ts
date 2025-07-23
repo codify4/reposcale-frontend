@@ -3,7 +3,7 @@
 export async function addToWaitlist(formData: FormData) {
     const email = formData.get('email') as string
 
-    const url = process.env.NODE_ENV === 'development' ? process.env.DEV_BACKEND_URL : process.env.PROD_BACKEND_URL
+    const url = process.env.PROD_BACKEND_URL
 
     const response = await fetch(`${url}/waitlist`, {
         method: 'POST',
@@ -22,7 +22,7 @@ export async function addToWaitlist(formData: FormData) {
 }
 
 export async function getWaitlistSize() {
-    const url = process.env.NODE_ENV === 'development' ? process.env.DEV_BACKEND_URL : process.env.PROD_BACKEND_URL
+    const url = process.env.PROD_BACKEND_URL
 
     const response = await fetch(`${url}/waitlist`, {
         method: 'GET',

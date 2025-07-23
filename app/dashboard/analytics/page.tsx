@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, GitBranch, Database } from "lucide-react"
+import { Users, GitBranch, Folders} from "lucide-react"
 import { LinkMemberChart } from "./components/member-chart"
 import { TopLinksTable } from "./components/top-links-table"
 import { SidebarTrigger } from "@/components/ui/sidebar"
@@ -62,7 +62,7 @@ function AnalyticsPage() {
                     <Card className="bg-black border-border/20 rounded-none text-white">
                         <CardHeader className="pb-3">
                             <CardTitle className="flex items-center gap-2 text-sm font-medium">
-                                <Database className="w-4 h-4" />
+                                <Folders className="w-4 h-4" />
                                 Total Buckets
                             </CardTitle>
                         </CardHeader>
@@ -76,7 +76,7 @@ function AnalyticsPage() {
                         <CardHeader className="pb-3">
                             <CardTitle className="flex items-center gap-2 text-sm font-medium">
                                 <Users className="w-4 h-4" />
-                                Monthly Users
+                                Monthly Members
                             </CardTitle>
                         </CardHeader>
                         <CardContent>

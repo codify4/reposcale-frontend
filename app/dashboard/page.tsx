@@ -84,7 +84,7 @@ function ReposPage() {
                     </div>
                     <p className='text-gray-400 text-sm leading-relaxed'>{link.description}</p>
                   </div>
-                  <div className='flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity'>
+                  <div className='flex items-center gap-1'>
                     <Button
                       variant="ghost"
                       size="sm"
@@ -175,9 +175,6 @@ function ReposPage() {
                       <Users className='w-3 h-3 mr-2' />
                       Manage Members
                     </Button>
-                  </div>
-                  <div className='text-xs text-gray-500'>
-                    Created {formatDate(link.expiresAt)}
                   </div>
                 </div>
               </CardContent>
