@@ -15,6 +15,7 @@ export function CreateBucketDialog({ open, onOpenChange, onSubmit }: CreateBucke
       open={open}
       onOpenChange={onOpenChange}
       onSubmit={onSubmit}
+      onLinkCreated={onSubmit}
       multiSelect={true}
       isBucket={true}
     />
