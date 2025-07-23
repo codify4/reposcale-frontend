@@ -86,7 +86,6 @@ export function Step2AccessControls({
       <Card className="bg-black border-none rounded-none p-0 mb-3">
         <CardContent className="p-0">
           <div className="flex items-center gap-2 mb-2">
-            <Calendar className="w-4 h-4 text-neutral-400" />
             <Label className="text-white text-sm font-medium">Expiry Time</Label>
           </div>
 
@@ -101,7 +100,7 @@ export function Step2AccessControls({
                   {date ? format(date, "MMM dd") : "Pick date"}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0 bg-black border border-white/10">
+              <PopoverContent className="w-auto p-0 bg-black border border-white/10 rounded-none">
                 <CalendarComponent
                   mode="single"
                   selected={date}

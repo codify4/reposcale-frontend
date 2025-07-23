@@ -18,6 +18,7 @@ interface Repo {
 
 interface CreateLinkData {
   selectedRepo?: Repo
+  selectedRepos?: Repo[]
   expiryTime?: string
   memberLimit?: number
   password?: string
@@ -29,9 +30,12 @@ interface CreateLinkDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
   onLinkCreated: (linkData: CreateLinkData) => void
+  multiSelect?: boolean
+  isBucket?: boolean
+  onSubmit?: (data: any) => void
 }
 
-export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLinkDialogProps) {
+export function CreateLinkDialog({ open, onOpenChange, onLinkCreated, multiSelect = false, isBucket = false, onSubmit }: CreateLinkDialogProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [linkData, setLinkData] = useState<CreateLinkData>({})
 
@@ -58,13 +62,20 @@ export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLi
   }
 
   const handleGenerateLink = () => {
-    onLinkCreated(linkData)
+    if (isBucket && onSubmit) {
+      onSubmit(linkData)
+    } else {
+      onLinkCreated(linkData)
+    }
     handleClose()
   }
 
   const canProceedToNext = () => {
     switch (currentStep) {
       case 1:
+        if (multiSelect) {
+          return linkData.selectedRepos && linkData.selectedRepos.length > 0
+        }
         return !!linkData.selectedRepo
       case 2:
         return true // All fields are optional in step 2
@@ -78,11 +89,11 @@ export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLi
   const getStepTitle = () => {
     switch (currentStep) {
       case 1:
-        return 'Select Repository'
+        return isBucket ? 'Select Repositories' : 'Select Repository'
       case 2:
         return 'Access Controls'
       case 3:
-        return 'Link Details'
+        return isBucket ? 'Bucket Details' : 'Link Details'
       default:
         return ''
     }
@@ -135,6 +146,9 @@ export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLi
             <Step1RepoSelection
               selectedRepo={linkData.selectedRepo}
               onRepoSelected={(repo) => handleStepDataUpdate({ selectedRepo: repo })}
+              multiSelect={multiSelect}
+              selectedRepos={linkData.selectedRepos}
+              onReposSelected={(repos) => handleStepDataUpdate({ selectedRepos: repos })}
             />
           )}
 
@@ -152,6 +166,7 @@ export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLi
               linkName={linkData.linkName}
               linkDescription={linkData.linkDescription}
               onDataUpdate={handleStepDataUpdate}
+              isBucket={isBucket}
             />
           )}
 
@@ -181,7 +196,7 @@ export function CreateLinkDialog({ open, onOpenChange, onLinkCreated }: CreateLi
                   disabled={!canProceedToNext()}
                   className="bg-white text-black hover:bg-gray-100 rounded-none px-6 py-2"
                 >
-                  Generate Link
+                  {isBucket ? 'Create Bucket' : 'Generate Link'}
                 </Button>
               )}
             </div>

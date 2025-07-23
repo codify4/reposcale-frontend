@@ -14,12 +14,14 @@ interface Step3LinkDetailsProps {
     linkName?: string
     linkDescription?: string
   }) => void
+  isBucket?: boolean
 }
 
 export function Step3LinkDetails({
   linkName,
   linkDescription,
-  onDataUpdate
+  onDataUpdate,
+  isBucket = false
 }: Step3LinkDetailsProps) {
   const handleNameChange = (value: string) => {
     onDataUpdate({ linkName: value })
@@ -35,12 +37,12 @@ export function Step3LinkDetails({
         <CardContent className='p-0'>
           <div className="flex items-center gap-2 mb-2">
             <Link className="w-4 h-4 text-gray-400" />
-            <Label className="text-white font-medium">Link Name</Label>
+            <Label className="text-white font-medium">{isBucket ? 'Bucket Name' : 'Link Name'}</Label>
           </div>
           
           <Input
             type="text"
-            placeholder="e.g., Frontend Team Access, Client Review, etc."
+            placeholder={isBucket ? "e.g., Frontend Projects, Backend Services, etc." : "e.g., Frontend Team Access, Client Review, etc."}
             value={linkName || ''}
             onChange={(e) => handleNameChange(e.target.value)}
             className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 rounded-none"
@@ -63,7 +65,7 @@ export function Step3LinkDetails({
           </div>
           
           <Textarea
-            placeholder="e.g., Temporary access for the design team to review the new components"
+            placeholder={isBucket ? "e.g., All frontend related repositories and components" : "e.g., Temporary access for the design team to review the new components"}
             value={linkDescription || ''}
             onChange={(e) => handleDescriptionChange(e.target.value)}
             className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 rounded-none resize-none"

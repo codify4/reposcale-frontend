@@ -17,9 +17,12 @@ interface Repo {
 interface Step1RepoSelectionProps {
   selectedRepo?: Repo
   onRepoSelected: (repo: Repo) => void
+  multiSelect?: boolean
+  selectedRepos?: Repo[]
+  onReposSelected?: (repos: Repo[]) => void
 }
 
-export function Step1RepoSelection({ selectedRepo, onRepoSelected }: Step1RepoSelectionProps) {
+export function Step1RepoSelection({ selectedRepo, onRepoSelected, multiSelect = false, selectedRepos = [], onReposSelected }: Step1RepoSelectionProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [repos, setRepos] = useState<Repo[]>([])
   const [loading, setLoading] = useState(true)
@@ -77,7 +80,16 @@ export function Step1RepoSelection({ selectedRepo, onRepoSelected }: Step1RepoSe
   )
 
   const handleRepoSelect = (repo: Repo) => {
-    onRepoSelected(repo)
+    if (multiSelect && onReposSelected) {
+      const isSelected = selectedRepos?.some(r => r.id === repo.id)
+      if (isSelected) {
+        onReposSelected(selectedRepos.filter(r => r.id !== repo.id))
+      } else {
+        onReposSelected([...selectedRepos, repo])
+      }
+    } else {
+      onRepoSelected(repo)
+    }
   }
 
   if (loading) {
@@ -115,7 +127,9 @@ export function Step1RepoSelection({ selectedRepo, onRepoSelected }: Step1RepoSe
             <Card
               key={repo.id}
               className={`bg-black border border-white/10 rounded-none hover:border-white/20 transition-colors cursor-pointer px-3 py-4 ${
-                selectedRepo?.id === repo.id ? 'border-white/40 bg-white/5' : ''
+                multiSelect 
+                  ? selectedRepos?.some(r => r.id === repo.id) ? 'border-white/40 bg-white/5' : ''
+                  : selectedRepo?.id === repo.id ? 'border-white/40 bg-white/5' : ''
               }`}
               onClick={() => handleRepoSelect(repo)}
             >
@@ -136,12 +150,19 @@ export function Step1RepoSelection({ selectedRepo, onRepoSelected }: Step1RepoSe
                     variant="ghost"
                     size="sm"
                     className={`rounded-none px-2 py-1 text-xs ml-2 flex-shrink-0 ${
-                      selectedRepo?.id === repo.id
-                        ? 'bg-white text-black hover:bg-gray-100'
-                        : 'text-gray-400 hover:text-white hover:bg-white/10'
+                      multiSelect
+                        ? selectedRepos?.some(r => r.id === repo.id)
+                          ? 'bg-white text-black hover:bg-gray-100'
+                          : 'text-gray-400 hover:text-white hover:bg-white/10'
+                        : selectedRepo?.id === repo.id
+                          ? 'bg-white text-black hover:bg-gray-100'
+                          : 'text-gray-400 hover:text-white hover:bg-white/10'
                     }`}
                   >
-                    {selectedRepo?.id === repo.id ? 'Selected' : 'Select'}
+                    {multiSelect
+                      ? selectedRepos?.some(r => r.id === repo.id) ? 'Selected' : 'Select'
+                      : selectedRepo?.id === repo.id ? 'Selected' : 'Select'
+                    }
                   </Button>
                 </div>
               </CardContent>
