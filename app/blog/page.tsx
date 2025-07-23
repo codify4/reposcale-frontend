@@ -32,7 +32,7 @@ export default function BlogPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight lowercase">
                 reposcale <span className="underline decoration-4 underline-offset-8">articles</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed lowercase">
+              <p className="text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed lowercase">
                 insights, tutorials, and best practices for secure repository sharing and development workflows.
               </p>
             </div>
@@ -41,8 +41,8 @@ export default function BlogPage() {
               {categories.map((category) => (
                 <Badge 
                   key={category}
-                  variant={category === selectedCategory ? "default" : "secondary"}
-                  className="px-4 py-2 text-sm font-medium cursor-pointer transition-colors rounded-none"
+                  variant={category === selectedCategory ? "secondary" : "default"}
+                  className={`px-4 py-2 text-sm font-medium cursor-pointer transition-colors rounded-none ${category === selectedCategory ? "hover:bg-white/90" : "hover:bg-neutral-800"}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category.toLowerCase()}
@@ -54,10 +54,10 @@ export default function BlogPage() {
       </section>
 
       <section className="relative pb-16">
-        <div className="container mx-auto px-6 lg:px-8 xl:px-12">
+        <div className="container mx-auto px-5 lg:px-8 xl:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <Card key={post.id} className="bg-black border border-white/20 hover:border-white/40 transition-all duration-300 group rounded-none">
+              <Card key={post.id} className="bg-black border border-white/20 hover:border-white/40 transition-all duration-300 group rounded-none p-0">
                 <CardHeader className="p-0">
                   <div className="relative aspect-video overflow-hidden">
                     <Image
@@ -74,16 +74,16 @@ export default function BlogPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="p-4 space-y-3">
-                  <div className="space-y-1">
+                  <div className="space-y-4">
                     <CardTitle className="text-lg font-bold leading-tight text-white  group-hover:text-white/80 transition-colors lowercase">
                       {post.title.toLowerCase()}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground leading-relaxed lowercase text-sm">
-                      {post.excerpt.toLowerCase()}
+                      {post.excerpt.toLowerCase().slice(0, 100)}...
                     </CardDescription>
                   </div>
                   
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-5">
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-1">
                         <User className="w-3 h-3" />
@@ -116,7 +116,7 @@ export default function BlogPage() {
           
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <Button className="bg-white text-black hover:bg-white/90 px-8 py-3 text-lg rounded-none">
+            <Button className="bg-white text-black hover:bg-white/90 px-8 py-3 rounded-none">
               load more posts
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
