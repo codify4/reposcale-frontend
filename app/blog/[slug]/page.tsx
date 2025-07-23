@@ -19,8 +19,9 @@ function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug)
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getBlogPost(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getBlogPost(slug)
   
   if (!post) {
     return {
@@ -69,8 +70,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <Navigation />
       
       <section className="relative pt-32 pb-16 overflow-hidden">
-        {/* <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div> */}
-        
         <div className="container mx-auto px-6 lg:px-8 xl:px-12 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
